@@ -10,3 +10,4 @@
 💬 Голограммы над аирдропами (DecentHolograms)
 ⏱️ Настраиваемые таймеры открытия и закрытия
 
+[![](https://jitpack.io/v/v23709789-sketch/FunnyAirdrop.svg)](https://jitpack.io/#v23709789-sketch/FunnyAirdrop)
