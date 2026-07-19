@@ -1,0 +1,123 @@
+listeners:
+  start:
+    description: 'Отправляет всем сообщение о начале аирдропа'
+    event: 'START'
+    commands:
+      - '[MESSAGE_ALL] &#FF1818&l▌'
+      - '[MESSAGE_ALL] &#FF1818&l▌ &l🎭 {displayname} &f&#FF1818Заспавнился'
+      - '[MESSAGE_ALL] &#FF1818&l▌ &l🎭 &f📍 На Координатах: &#FF1818&l{x} {y} {z}'
+      - '[MESSAGE_ALL] &#FF1818&l▌'
+      - '[TITLE_ALL] {displayname}&7 появился!'
+      - '[SOUND_ALL] BLOCK_BEACON_POWER_SELECT'
+  end:
+    description: 'Отправляет всем сообщение о завершении аирдропа'
+    event: 'END'
+    commands:
+      - '[MESSAGE_ALL] &#FF1818&l▌'
+      - '[MESSAGE_ALL] &#FF1818&l▌ ✘ &#FF1818Ивент завершен!'
+      - '[MESSAGE_ALL] &#FF1818&l▌ ✘ &#FF1818{displayname} &fисчез...'
+      - '[MESSAGE_ALL] &#FF1818&l▌'
+      - '[SOUND_ALL] ENTITY_ENDER_DRAGON_DEATH'
+  click_closed:
+    description: 'Отправляет игроку сообщение что аирдроп закрыт'
+    event: 'CLICK_CLOSED'
+    commands:
+      - '[MESSAGE] &#ffaa55Аирдроп откроется через {time-to-open}'
+      - '[SOUND] BLOCK_CHEST_LOCKED'
+  click_opened:
+    description: 'Действие при открытии аирдропа'
+    event: 'CLICK_OPENED'
+    commands:
+      - '[SOUND] BLOCK_CHEST_OPEN'
+  click_looted:
+    description: 'Действие при попытке открыть залутанный аирдроп'
+    event: 'CLICK_LOOTED'
+    commands:
+      - '[MESSAGE] &#ff5555Аирдроп уже залутан!'
+      - '[SOUND] BLOCK_CHEST_LOCKED'
+  timer:
+    description: 'Таймер до исчезновения'
+    event: 'TIMER'
+    commands:
+      - '[MESSAGE_ALL] &#FF1818{displayname} исчезнет через {time}.'
+  particle:
+    description: 'Партиклы возле аирдропа'
+    event: 'PARTICLE'
+    settings:
+      radius: 1.5   # Радиус зоны видимости партиклов (кто дальше - не увидит)
+      height: 1.0   # Дополнительная высота над блоком аирдропа (прибавляется ко всем Y)
+    commands:
+      # [PARTICLE_ALL] формат:
+      # <тип частицы>|<смещение X>|<смещение Y>|<смещение Z>|<количество>|<разброс X>|<разброс Y>|<разброс Z>|<скорость>
+      - '[PARTICLE_ALL] ENCHANTMENT_TABLE|0|0|0|5|0.5|0.5|0.5|0.01'
+
+      # [PARTICLE_SHAPE_ALL] формат:
+      # <фигура>|<тип частицы>|<радиус>|<высота>|<точек>|<смещение Y>|<кол-во частиц>|<скорость>|[высота спирали]|[обороты]
+      #
+      # Доступные фигуры:
+      # circle - горизонтальный круг (высота: 0.0 = на уровне, -1.0 = ниже на блок)
+      # ring   - вертикальное кольцо (смещение Y задаёт подъём кольца)
+      # sphere - сфера вокруг аирдропа
+      # spiral - спираль вверх (доп. параметры: высота спирали|обороты)
+      # helix  - двойная спираль ДНК
+      # star   - плоская звезда
+      - '[PARTICLE_SHAPE_ALL] star|FLAME|1.5|-0.8|32|0.0|1|0'
+  pickup_delay:
+    description: 'Задержка перед взятием предмета (в тиках)'
+    event: 'PICKUP_DELAY'
+    settings:
+      delay_ticks: 10
+  progressive_loot:
+    description: 'Постепенное появление лута в инвентаре'
+    event: 'PROGRESSIVE_LOOT'
+    settings:
+      interval_ticks: 5
+      items_per_interval: 1
+  loot_disguise:
+    description: 'Маскировка лута под другие предметы'
+    event: 'LOOT_DISGUISE'
+    settings:
+      enabled: true
+      disguise_items:
+        - GRAY_DYE
+        - BROWN_DYE
+        - BLACK_DYE
+        - BONE_MEAL
+        - GUNPOWDER
+        - ROTTEN_FLESH
+        - BONE
+  drop_loot:
+    description: 'Лут выкидывается в разные стороны вместо открытия инвентаря'
+    event: 'DROP_LOOT'
+    settings:
+      enabled: true
+      drop_interval_ticks: 20
+      items_per_drop: 1
+      drop_height: 2.0
+      velocity_multiplier: 0.5
+  boss_bar_closed:
+    description: 'Отображает BossBar когда аирдроп закрыт'
+    event: 'BOSS_BAR_CLOSED'
+    settings:
+      radius: 20
+    commands:
+      - '[BOSS_BAR_ALL] &#FF1818{displayname} &#ffaa55До открытия: {time-to-open} &#aaaaaaX:{x} Y:{y} Z:{z} | 1.0 | RED | SEGMENTED_12'
+  boss_bar_opened:
+    description: 'Отображает BossBar когда аирдроп открыт'
+    event: 'BOSS_BAR_OPENED'
+    settings:
+      radius: 20
+    commands:
+      - '[BOSS_BAR_ALL] &#55ff55{displayname} &#ffaa55Исчезнет через: {time} &#aaaaaaX:{x} Y:{y} Z:{z} | 1.0 | RED | SEGMENTED_12'
+  boss_bar_click_activate:
+    description: 'Отображает BossBar когда аирдроп ждёт активации по клику'
+    event: 'BOSS_BAR_CLICK_ACTIVATE'
+    settings:
+      radius: 20
+    commands:
+      - '[BOSS_BAR_ALL] &#FF1818{displayname} &#ffffffожидает активации! &#aaaaaaНажмите ПКМ &#aaaaaaX:{x} Y:{y} Z:{z} | 1.0 | RED | SEGMENTED_12'
+  actionbar:
+    description: 'Отображает ActionBar с названием и координатами'
+    event: 'ACTIONBAR'
+    commands:
+      - '[ACTIONBAR_ALL] &#FF1818{displayname} &#ffaa55Координаты: {x} {y} {z} &#aaaaaaВремя: {time}'

@@ -1,0 +1,26 @@
+debug: false
+
+airdrops:
+  auto_save_interval: 300
+  default_duration: 600
+
+settings:
+  world-guard-flags:
+    allow-flags:
+      - use
+      - pvp
+      - chest-access
+    deny-flags:
+      - creeper-explosion
+      - tnt
+      - fire-spread
+      - lava-fire
+      - other-explosion
+
+  spawn-restrictions:
+    forbidden-blocks:
+      - LAVA
+      - WATER
+    max-spawn-attempts: 50
+    min-spawn-height: 5
+    max-spawn-height: 255

@@ -1,0 +1,162 @@
+airdrop:
+  ==: Airdrop
+  name: test
+  material: ENDER_CHEST
+  display_name: '&6Обычный Аирдроп'
+  world: world
+  radius: 2000
+  active: false
+  inventory_size: 54
+  open_time: 30
+  close_time: 120
+  hologram_height: 2.0
+  world_guard_radius: 10
+  schematic: temple.schem
+  schematic_offset_x: 0
+  schematic_offset_y: 1
+  schematic_offset_z: 0
+  ignore_air_blocks: true
+  auto_respawn_time: 300
+  auto_respawn: false
+  click_to_activate: false
+  click_to_activate_holo:
+    - '{displayname}'
+    - '&7Нажми для активации'
+  loot_items:
+    '0':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: GOLDEN_APPLE
+        amount: 8
+      chance: 60.0
+    '3':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: GOLD_INGOT
+        amount: 16
+      chance: 70.0
+    '5':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: NETHERITE_CHESTPLATE
+      chance: 30.0
+    '8':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: DIAMOND_BOOTS
+      chance: 50.0
+    '10':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: TOTEM_OF_UNDYING
+      chance: 50.0
+    '12':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: EXPERIENCE_BOTTLE
+        amount: 64
+      chance: 10.0
+    '18':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: END_CRYSTAL
+        amount: 16
+      chance: 30.0
+    '20':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: NETHERITE_CHESTPLATE
+        meta:
+          ==: ItemMeta
+          meta-type: ARMOR
+          enchants:
+            minecraft:protection: 3
+            minecraft:unbreaking: 2
+      chance: 81.0
+    '23':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: NETHERITE_SWORD
+      chance: 10.0
+    '25':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: NETHERITE_LEGGINGS
+      chance: 30.0
+    '28':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: ENCHANTED_GOLDEN_APPLE
+        amount: 2
+      chance: 20.0
+    '31':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: NETHERITE_INGOT
+      chance: 11.0
+    '33':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: NETHERITE_SCRAP
+        amount: 8
+      chance: 60.0
+    '37':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: WIND_CHARGE
+        amount: 32
+      chance: 50.0
+    '44':
+      itemstack:
+        ==: org.bukkit.inventory.ItemStack
+        v: 4189
+        type: DIAMOND_HELMET
+      chance: 40.0
+  listeners:
+    start:
+      enabled: true
+    end:
+      enabled: true
+    click_closed:
+      enabled: true
+    click_opened:
+      enabled: true
+    click_looted:
+      enabled: true
+    timer:
+      enabled: false
+    pickup_delay:
+      enabled: true
+    progressive_loot:
+      enabled: true
+    loot_disguise:
+      enabled: true
+    drop_loot:
+      enabled: false
+    boss_bar:
+      enabled: true
+    actionbar:
+      enabled: false
+  holo_config:
+    closed:
+      - '{displayname}'
+      - '&#ff5555Закрыт!'
+      - '&#ffaa55До открытия: {time-to-open}'
+    opened:
+      - '{displayname}'
+      - '&#55ff55Открыт!'
+      - '&#ffaa55Исчезнет через: {time}'

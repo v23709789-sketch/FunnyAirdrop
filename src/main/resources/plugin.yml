@@ -1,0 +1,15 @@
+name: FunnyAirdrop
+version: 2.3
+main: me.funnyairdrop.FunnyAirdrop
+api-version: "1.16"
+author: CrazyX
+softdepend: [WorldGuard, WorldEdit, DecentHolograms]
+commands:
+  fairdrop:
+    description: Команды аирдропа
+    usage: /fairdrop <start|stop|create|delete|tp|menu|groups|reload>
+    permission: funnyairdrop.admin
+permissions:
+  funnyairdrop.admin:
+    description: Права для админов
+    default: op
